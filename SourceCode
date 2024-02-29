@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#include <string.h>
+#define SIZE 20
+#define NUMPASSWORD 10
+
+int main() 
+{
+	//Seed for generate random numbers
+	srand(time(NULL));
+	//Array of characters
+	char array[SIZE];
+	printf("Passwords:\n");
+	//generates n NUMPASSWORD
+	int t = NUMPASSWORD;
+	int k = 0;
+	int j = -1;
+	
+	while (t != 0) 
+	{
+		//Cycle for SIZE characters
+		for (int i = 0; i < SIZE; i++) 
+		{
+			// While here due to avoid n-1 character to be equal to n character
+			while (k == j) 
+			{
+				k = 1 + rand () % 8;	
+			}
+			
+			switch (k) 
+			{
+				case 1:
+				//Node that generates random lower case character
+						array[i] = 97 + rand () % (122-97);
+						printf("%c",array[i]);
+				break;
+				case 2:
+				//Node that generates random upper case character
+						array[i] = 65 + rand () % (90-65);
+						printf("%c",array[i]);
+				break;
+				case 3:
+				//Node that generates random special character 
+						array[i] = 36 + rand () % (38-36);
+						printf("%c",array[i]);
+				break;
+				case 4:
+				//Node that generates random special character
+						array[i] = 63;
+						printf("%c",array[i]);
+				break;
+				case 5:
+				//Node that generates random special character	
+						array[i] = 48 + rand () % (57-48);
+						printf("%c",array[i]);	
+				break;
+				case 6:
+				//Node that generates random special character
+						array[i] = 33;
+						printf("%c",array[i]); 	
+				break;
+				case 7:
+				//Node that generates random special character
+						array[i] = 45;
+						printf("%c",array[i]);
+				break;
+				case 8:
+				//Node that generates random special character
+						array[i] = 43;
+						printf("%c",array[i]);		
+				break;		
+			}
+		
+			j = k;
+		
+		}	//For ends here
+	puts("");
+	t--;
+	
+	}//While ends here
+}
